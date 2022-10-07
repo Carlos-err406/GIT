@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam classAttributeIconSize 0
+
+class Tree{
+- root: TreeNode
+}
+class GeneralTree{}
+class BinaryTree{}
+class BinaryTreeNode{}
+class TreeNode{}
+
+TreeNode ---* Tree
+GeneralTree ---|> Tree
+BinaryTree ---|> Tree
+BinaryTreeNode ---* GeneralTree
+BinaryTreeNode ---* BinaryTree
+BinaryTreeNode ---* BinaryTreeNode
+BinaryTreeNode ---|> TreeNode
+@enduml
