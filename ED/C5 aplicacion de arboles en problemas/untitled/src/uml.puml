@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+
+class Empresa{
+'- tree : GeneralTree<Dependencia>
+}
+
+class Direccion extends Dependencia{
+    -direccion : String
+    -fax : String
+    -telefono : String
+
+}
+class Subdireccion extends Dependencia{}
+
+class Departamento extends Dependencia{
+    -maxCantTrabajadores : int
+}
+
+class Trabajador{
+    #nombre : String
+    #edad : int
+    #plaza : String
+    #id : String
+    #annosExp : int
+}
+class Dirigente extends Trabajador{
+    -annosEnElCargo : int
+}
+
+class Dependencia<<abstract>>{
+    #nombre : String
+}
+
+Empresa"1" *-- "*"Dependencia : GeneralTree
+Dependencia"1" *-- "1"Dirigente
+Departamento"1" o-- " * "Trabajador : ArrayList
+
+@enduml
